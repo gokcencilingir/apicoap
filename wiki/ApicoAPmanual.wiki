@@ -101,6 +101,7 @@ SP cleavage site information file is expected to contain id-SP cleavage site pai
 
 == ApicoAP - command line ==
 
+{{{
 *Usage:* python ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
 *Options:*
   -h, --help
@@ -114,16 +115,16 @@ SP cleavage site information file is expected to contain id-SP cleavage site pai
            Read FASTA formatted sequences from FILE
   -o FILE, --outputFile=FILE
            Write output to FILE
-                        
+}}}                        
 All options but "-s" are required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are the files named as "organism".spCleavs and "organism".idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
 
 
 == Instructions for converting ApicoAP_GUI.py to MAC OS X compatible .app file ==
 
-  * Download "PyInstaller 1.5" from http://www.pyinstaller.org/
+  * Download PyInstaller 1.5 from http://www.pyinstaller.org/
   * First, unpack the archives (pyinstaller-1.5.zip and ApicoAPxx.zip) on your path of choice. (Installer is not a Python package, so it doesn't need to go in site-packages)
 
-  * Open the Terminal app, change directories to the location of "pyinstaller-1.5", and type the following commands in order:
+  * Open the Terminal app, change directories to the location of pyinstaller-1.5, and type the following commands in order:
 
 	python Configure.py
 	python Makespec.py --onefile pathToApicoAp/ApicoAP_GUI.py 
