@@ -24,6 +24,7 @@ ApicoAP is a program for predicting Apicoplast Targeted Proteins that use bipart
 
 In order to predict if a protein localizes to Apicoplast or not,ApicoAP 
 requires the whole sequence of a protein and the predicted SP cleavage site information. User should enter protein sequences in FASTA format, making sure description line contains protein id information that can be tied down to SP cleavage site information by the program.
+
  
 ApicoAP program comes with ".spCleavs" files that ties SP cleavage site 
 information with gene ids (official gene names). These files are prepared using SignalP 3.0 tool. In order to make use of SP cleavage site information in these files, user should use appropriate protein ID in the description lines when entering FASTA formatted sequences. In fact, description lines (that start with the character '>') may only contain the appropriate protein ID, and nothing else. Following are examples of acceptable sequence formats (first one is a B. bovis protein and the second one is a P. falciparum protein):
