@@ -74,12 +74,13 @@ ApicoAP provides other ways to enter SP cleavage site information. Use case B an
     # For example, enter "myID1" and "21" respectively.
     # Click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
     # Follow steps 3-6 from use case A. Following the example given in step 3, you may enter the following to the text box provided in "Import protein Sequences" text box:
-      
->myID1
 
+{{{      
+>myID1
 SAVTDLLQSVQLEYHGYEGDRKDNADTSNKGPPKERVEGCLNELFSLVQGLGATAVVRTYIDQ
 LAQVLSALVGWSRIDKCSIGSCDHGKKGSTCQYLQDKTPENKCGACGCMKWNVDEADQEEKGH
 HLGRGCQRCSDSGGSEHNCSCSGGGSDCTAETCKCALAGK      
+}}}
 
 *Additional Notes:*
 
