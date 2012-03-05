@@ -116,7 +116,9 @@ Options:
   -o FILE, --outputFile=FILE
                         Write output to FILE
                         
-All options but "-s" is required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are <organism>.spCleavs and <organism>.idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
+All options but "-s" are required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are the files named as "organism".spCleavs and "organism".idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
+
+---
 
 
 * Reference to the ApicoAP paper (where you can read more about the method): *
