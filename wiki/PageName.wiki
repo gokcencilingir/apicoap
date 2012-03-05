@@ -2,8 +2,7 @@
 
 == Introduction ==
 
-ApicoAP is a program for predicting Apicoplast Targeted Proteins that use 
-bipartite signaling mechanism (ApicoTPs).
+ApicoAP is a program for predicting Apicoplast Targeted Proteins that use bipartite signaling mechanism (ApicoTPs).
 
 == Instructions for running ApicoAP ==
 
