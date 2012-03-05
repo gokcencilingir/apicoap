@@ -101,8 +101,8 @@ SP cleavage site information file is expected to contain id-SP cleavage site pai
 
 == ApicoAP - command line ==
 
-Usage: python ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
-Options:
+*Usage:* python ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
+*Options:*
   -h, --help
            show this help message and exit
   -m ORGANISM, --mode=ORGANISM   
