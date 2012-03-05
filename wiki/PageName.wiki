@@ -127,8 +127,6 @@ ApicoAP: The first computational model for identifying apicoplast-targeted prote
 
 Gokcen Cilingir1, Shira L. Broschat1,2, and Audrey O.T. Lau2
 
-1School of Electrical Engineering and Computer Science, Washington State University
-Pullman, WA 99164, USA
-2Program of Genomics, Department of Veterinary Microbiology and Pathology, 
-Paul G. Allen School for Global Animal Health, Washington State University
-Pullman, WA 99164, USA
+1School of Electrical Engineering and Computer Science, Washington State University, Pullman, WA 99164, USA
+
+2Program of Genomics, Department of Veterinary Microbiology and Pathology, Paul G. Allen School for Global Animal Health, Washington State University, Pullman, WA 99164, USA
