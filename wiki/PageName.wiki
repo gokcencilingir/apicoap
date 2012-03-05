@@ -13,7 +13,7 @@ ApicoAP is a program for predicting Apicoplast Targeted Proteins that use bipart
   * For Mac OS X, simply double-clicking ApicoAP_GUI.py would launch the software if the default program to open ".py" files is set to be the terminal. If instead of the program, an editor opens the source code, and you don't know how to change the default program to open a file, then, open the Terminal app, change directories to the location of ApicoAP, and type:
       python ApicoAP_GUI.py
 	
-*_NOTE on MAC OS X: _* Splash screen of the program may not appear when above instructions were followed. A separate README file is included for you to convert .py file to an .app file. When app file is launched splash screen will be visible. 
+  * _ NOTE on MAC OS X: _ * Splash screen of the program may not appear when above instructions were followed. A separate README file is included for you to convert .py file to an .app file. When app file is launched splash screen will be visible. 
 	
   * For Windows, simply double click on ApicoAP_GUI.py or open a command prompt, change directories to the location of ApicoAP, and type:  
       python ApicoAP_GUI.py
