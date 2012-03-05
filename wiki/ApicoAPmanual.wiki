@@ -29,20 +29,21 @@ requires the whole sequence of a protein and the predicted SP cleavage site info
 ApicoAP program comes with ".spCleavs" files that ties SP cleavage site 
 information with gene ids (official gene names). These files are prepared using SignalP 3.0 tool. In order to make use of SP cleavage site information in these files, user should use appropriate protein ID in the description lines when entering FASTA formatted sequences. In fact, description lines (that start with the character '>') may only contain the appropriate protein ID, and nothing else. Following are examples of acceptable sequence formats (first one is a B. bovis protein and the second one is a P. falciparum protein):
 
+{{{
 >BBOV_II005080
-
 MASLSYSFLLVLFTCLASWDSPRICDCIKLKGSPNSRSGYIIHRIKGYAVNPSSNRHVAKSSV
 DYTSGELRPFTLYYNVKLITPEGEKVVDCDPDEYILEAAERGGVDLPYSCRSGSCSTCAGKLL
 KGEVNNEDQNYLDDKQLEEGYCLLCTCYAKSDCTIVTHKENELHD
-
+}}}
+{{{
 >PF08_0067
-
 MIKKVHICLFIIFFYVIFLIHICKGIRLQNYKNERINNRHMLNTIRNNVSIYQNKHISNNNTK
 ENKCNIMINYYDKSNIFCKSFLLSMEEKDNIKNIKKKIEEIYGIPLTLQEILYDNKKLENNIT
 IQNIIKDKQIKILNLRLITILPHLFLQKDDDNNTNKRNDVSSSSSSSSLYNNEYIKSNKRITY
 LKNKLTYYGYLTLLNEYKKLSHILENKKYILKNDDILESFKSFDQEFEKTLKNNNINLHKIKK
 EINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTIIKFSIFFYILYKYADY
 PNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTNILSASYQQILMCQ
+}}}
 
 ApicoAP provides other ways to enter SP cleavage site information. Use case B and C talks about these ways.
 
