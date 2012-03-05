@@ -13,7 +13,7 @@ ApicoAP is a program for predicting Apicoplast Targeted Proteins that use bipart
   * For Mac OS X, simply double-clicking ApicoAP_GUI.py would launch the software if the default program to open ".py" files is set to be the terminal. If instead of the program, an editor opens the source code, and you don't know how to change the default program to open a file, then, open the Terminal app, change directories to the location of ApicoAP, and type:
       python ApicoAP_GUI.py
 	
-  * _ NOTE on MAC OS X: _ Splash screen of the program may not appear when above instructions were followed. Instructions are included for you to convert .py file to an .app file at the end of this document. When app file is launched splash screen will be visible. 
+  * _ NOTE on MAC OS X: _ Splash screen of the program may not appear when above instructions were followed. Instructions will be included as a separate wiki page for you to convert .py file to an .app file at the end of this document. When app file is launched splash screen will be visible. 
 	
   * For Windows, simply double click on ApicoAP_GUI.py or open a command prompt, change directories to the location of ApicoAP, and type:  
       python ApicoAP_GUI.py
@@ -118,40 +118,7 @@ SP cleavage site information file is expected to contain id-SP cleavage site pai
 }}}                        
 All options but "-s" are required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are the files named as "organism".spCleavs and "organism".idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
 
-
-== Instructions for converting ApicoAP_GUI.py to MAC OS X compatible .app file ==
-
-  * Download 'PyInstaller-1.5' from http://www.pyinstaller.org/
-  * First, unpack the archives ('pyinstaller-1.5.zip' and ApicoAPxx.zip) on your path of choice. (Installer is not a Python package, so it doesn't need to go in site-packages)
-
-  * Open the Terminal app, change directories to the location of pyinstaller-1.5, and type the following commands in order:
-
-	python Configure.py
-	python Makespec.py --onefile pathToApicoAp/ApicoAP_GUI.py 
-
-_Note:_ pathToApicoAp in the above command should be replaced by the path ApicoAP_GUI.py resides. This command will prepare a spec file, and the path/name of the prepared spec file will be printed to the screen, this path/name should be provided to the next command
-
-  * Before running the next command, add the following lines at the end of the spec file prepared with the previous command:
-
-{{{
-import sys
-if sys.platform.startswith("darwin"):
-    app = BUNDLE(exe,
-                 name=os.path.join('dist', 'NAME.app'),
-                 version=version)
-}}}
-                
-and run the following command:
-
-	python Build.py pathToSpecfile/specfile
-
- _Note:_ pathToSpecfile/specfile in this command should be replaced by the path/name of the spec file prepared by the last command.
-
-
-  * These commands should create a folder under pyinstaller-1.5 named ApicoAp and under ApicoAp/dist folder ApicoAp.app should reside.Copy this file under the folder ApicoAp '*'(in which ApicoAP_GUI.py resides'*') and launch it from there.
-
 ----
-
 
 * Reference to the ApicoAP paper (where you can read more about the method): *
 
