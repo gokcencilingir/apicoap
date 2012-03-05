@@ -49,18 +49,18 @@ ApicoAP provides other ways to enter SP cleavage site information. Use case B an
   * (A) Using default files to import SP cleavage information  
   
     # Select the appropriate organism from "Select organism" box.
-    # Select default file option from "Import Signal Peptide (SP) cleavage information" box and click "Import" button.[Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.]
-    # Copy-paste FASTA formatted protein sequences to the text box, or import a FASTA formatted file by selecting the "Import sequences from fasta file" option. [NOTE: exampleFiles directory contains some FASTA formatted files that can be used for testing ApicoAP.]
+    # Select default file option from "Import Signal Peptide (SP) cleavage information" box and click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
+    # Copy-paste FASTA formatted protein sequences to the text box, or import a FASTA formatted file by selecting the "Import sequences from fasta file" option. *NOTE:* exampleFiles directory contains some FASTA formatted files that can be used for testing ApicoAP.
     # Click "Run ApicoAP" button to see the predictions along with id and SP cleavage site information.
     # Optional: Save predictions to a file.
-    # Click "Enter new data" button to enter new data.[Note: Clicking this button enables the use of the rest of the form that is disabled after prediction results are displayed]
+    # Click "Enter new data" button to enter new data. *Note:* Clicking this button enables the use of the rest of the form that is disabled after prediction results are displayed.
       
   * (B) Using custom files to import SP cleavage information
   
     # Select the appropriate organism from "Select organism" box.
     # Select custom file option from "Import Signal Peptide (SP) cleavage information" box. 
     # Enter or browse file name which contains id-SP cleavage site pairs (tab-delimited pairs in separate lines). 
-    # Click "Import" button. [Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.]
+    # Click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
     # Follow steps 3-6 from use case A.
       
   * (C) Enter SP information manually
@@ -69,7 +69,7 @@ ApicoAP provides other ways to enter SP cleavage site information. Use case B an
     # Select "Enter SP information manually" option from "Import Signal Peptide (SP) cleavage information" box .
     # Enter ID and SP information in the appropriate text boxes provided. 
     # For example, enter "myID1" and "21" respectively.
-    # Click "Import" button. [Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.]
+    # Click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
     # Follow steps 3-6 from use case A. Following the example given in step 3, you may enter the following to the text box provided in "Import protein Sequences" text box:
       
 >myID1
