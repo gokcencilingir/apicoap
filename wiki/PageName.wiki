@@ -25,4 +25,4 @@ and run the following command:
 
 	python Build.py pathToSpecfile/specfile
 
-*Note:* pathToSpecfile/specfile in this command should be replaced by the path/name of the spec file prepared by the last command. These commands should create a folder under "pyinstaller-1.5" named "ApicoAp" and under "ApicoAp/dist" folder ApicoAp.app should reside. Copy this file under the folder ApicoAp (in which ApicoAP_GUI.py resides) and launch it from there.
+*Note:* pathToSpecfile/specfile in this command should be replaced by the path/name of the spec file prepared by the last command. These commands should create a folder under "pyinstaller-1.5" named ApicoAp and under ApicoAp/dist folder ApicoAp.app should reside. Copy this file under the folder ApicoAp (in which ApicoAP_GUI.py resides) and launch it from there.
