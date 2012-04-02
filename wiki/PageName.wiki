@@ -1,17 +1,17 @@
 #summary Instructions for converting ApicoAP_GUI.py to MAC OS X compatible .app file
 
-* Download PyInstaller 1.5 from http://www.pyinstaller.org/
+  * Download PyInstaller 1.5 from http://www.pyinstaller.org/
 
-* First, unpack the archives (pyinstaller-1.5.zip and ApicoAP.zip) on your path of choice. (Installer is not a Python package, so it doesn't need to go in site-packages)
+  * First, unpack the archives (pyinstaller-1.5.zip and ApicoAP.zip) on your path of choice. (Installer is not a Python package, so it doesn't need to go in site-packages)
 
-* Open the Terminal app, change directories to the location of "pyinstaller-1.5", and type the following commands in order:
+  * Open the Terminal app, change directories to the location of "pyinstaller-1.5", and type the following commands in order:
 
 	python Configure.py
 	python Makespec.py --onefile pathToApicoAp/ApicoAP_GUI.py 
 
 *Note:* pathToApicoAp in this command should be replaced by the path ApicoAP_GUI.py resides. This command will prepare a spec file, and the path/name of the prepared spec file will be printed to the screen, this path/name should be provided to the next command]
 
-*Before running the next command, add the following lines at the end of the spec file prepared with the previous command:
+  *Before running the next command, add the following lines at the end of the spec file prepared with the previous command:
 
 {{{
 import sys
