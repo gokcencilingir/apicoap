@@ -2,11 +2,13 @@
 
 == Introduction ==
 
-ApicoAP is a program for predicting Apicoplast targeted proteins that use bipartite signaling mechanism (ApicoTPs).
+ApicoAP is a program for predicting Apicoplast targeted proteins that use bipartite signaling mechanism (ApicoTPs). It comes with both graphical user and command line interfaces.
 
 == Instructions for running ApicoAP ==
 
 * Requirements:* Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.2/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note that all the files in this directory are essential and any damage to them would cause ApicoAP stop working. 
+
+*NOTE:* Sometimes, run-time messages (mostly warnings) will occur due to different versions of some of the supporting software. These messages should be ignored since they are benign.
 
 * Launching ApicoAP with Graphical User Interface (GUI): *
 
