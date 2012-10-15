@@ -1,4 +1,4 @@
-#summary ApicoAP User Manual
+#summary ApicoAP (version 1) User Manual
 
 == Introduction ==
 
