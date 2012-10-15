@@ -6,7 +6,7 @@ ApicoAP is a program for predicting Apicoplast targeted proteins that use bipart
 
 == Instructions for running ApicoAP ==
 
-* Requirements:* Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.2/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note that all the files in this directory are essential and any damage to them would cause ApicoAP stop working. 
+* Requirements:* Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.3/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note some files in this directory are essential and any damage to them would cause ApicoAP stop working. 
 
 *NOTE:* Sometimes, run-time messages (mostly warnings) will occur due to different versions of some of the supporting software. These messages should be ignored since they are benign.
 
@@ -24,7 +24,7 @@ ApicoAP is a program for predicting Apicoplast targeted proteins that use bipart
 
 == Instructions for using ApicoAP GUI == 
 
-In order to predict if a protein localizes to Apicoplast or not,ApicoAP 
+In order to predict if a protein localizes to Apicoplast or not, ApicoAP 
 requires the whole sequence of a protein and the predicted SP cleavage site information. User should enter protein sequences in FASTA format, making sure description line contains protein id information that can be tied down to SP cleavage site information by the program.
 
  
