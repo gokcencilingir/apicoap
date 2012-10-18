@@ -36,7 +36,7 @@ ApicoAP is a program for predicting Apicoplast targeted proteins that use bipart
   * Click "Enter new data" button to enter new data. *Note:* Clicking this button enables the use of the rest of the form that is disabled after prediction results are displayed.
 
 
-*NOTE:* For the prediction results to be displayed as neatly as possible, description lines of the fasta formatted sequences should be in an acceptable format. Following exemplifies acceptable description line formats for the same sequence. (first two are standards used in eupathdb and ncbi):
+*NOTE:* For the prediction results to be displayed as neatly as possible, description lines of the fasta formatted sequences should be in an acceptable format. Following exemplifies acceptable description line formats for the same sequence(these are standards used in eupathdb and ncbi).
 
 {{{
 >PF3D7_0815700  | Plasmodium falciparum 3D7 | ubiquitin (Ub) | protein  | length=373
@@ -58,59 +58,41 @@ KNNNINLHKIKKEINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTII
 KFSIFFYILYKYADYPNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTN
 ILSASYQQILMCQ
 }}}
-{{{
->296005015
-MIKKVHICLFIIFFYVIFLIHICKGIRLQNYKNERINNRHMLNTIRNNVSIYQNKHISNN
-NTKENKCNIMINYYDKSNIFCKSFLLSMEEKDNIKNIKKKIEEIYGIPLTLQEILYDNKK
-LENNITIQNIIKDKQIKILNLRLITILPHLFLQKDDDNNTNKRNDVSSSSSSSSLYNNEY
-IKSNKRITYLKNKLTYYGYLTLLNEYKKLSHILENKKYILKNDDILESFKSFDQEFEKTL
-KNNNINLHKIKKEINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTII
-KFSIFFYILYKYADYPNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTN
-ILSASYQQILMCQ
-}}}
 
 == Interpreting prediction results ==
 
-Prediction for a protein can be one of the following: "non-ApicoTP", "ApicoTP", "No SP", "Unknown id". First two tags are self-explanatory. "No SP" implies that the id information is tied with the information that the protein does not contain an SP region. Since ApicoAP predicts Apicoplast Targeted Proteins (ApicoTPs)that use bipartite signaling mechanism, which dictates a protein to contain an SP region; this prediction implies that the protein is not an ApicoTP. 
-
-
-If the program cannot tie the given ID with an SP cleavage information, prediction 
-result for the protein will be "Unknown id". User is encouraged to enter SP cleavage site information for these proteins by either preparing and importing a custom file or entering this information manually (follow use cases B and C for more information).
- 
-== Preparing/Entering SP cleavage site information ==
-
-When entering SP cleavage site information manually (or through a custom prepared file), one should put the end index of the SP region as the SP cleavage site assuming the beginning index is 1.
-
-SP cleavage site information file is expected to contain id-SP cleavage site pairs in separate lines. Each line should contain an ID and SP cleavage site (either a number or '-' or 'N' implying no SP), seperated by a tab. 
-
+Prediction for a protein can be one of the following: "non-ApicoTP", "ApicoTP", "No SP". First two tags are self-explanatory. "No SP" implies that SignalP 3.0 could not detect an SP site in the sequence. Since ApicoAP predicts Apicoplast Targeted Proteins (ApicoTPs)that use bipartite signaling mechanism, which dictates a protein to contain an SP region; this prediction implies that the protein is not an ApicoTP. 
 
 == ApicoAP - command line ==
 
 {{{
-*Usage:* python ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
+*Usage:* ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
+
 *Options:*
-  -h, --help
-           show this help message and exit
-  -m ORGANISM, --mode=ORGANISM   
-           Select organism: BBOV for B.bovis, PF for P.falciparum, 
-           TOXO for T.gondii, PY for P.yoelii.[default: BBOV]
+  -h, --help            show this help message and exit
+  -m ORGANISM, --mode=ORGANISM
+                        Select organism: BBOV for B.bovis, PF for
+                        P.falciparum, TOXO for T.gondii, PY for P.yoelii.
+                        [default: BBOV]
   -s FILE, --spFile=FILE
-           Read additional SP cleavage site information from FILE
+                        Read SP cleavage site information from FILE instead of
+                        querying SIGNALP server
   -f FILE, --fastaFile=FILE
-           Read FASTA formatted sequences from FILE
+                        Read FASTA formatted sequences from FILE
   -o FILE, --outputFile=FILE
-           Write output to FILE
+                        Write output to FILE
 }}}                        
-All options but "-s" are required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are the files named as "organism".spCleavs and "organism".idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
+All options but "-s" are required. Setting this option will cause the program not to query SignalP server, but use the provided file, which is assumed to contain required information on SP cleavage. Please read the next section on how to format these files if you're planning to use this option.
+
+== Using -s option ==
+
+When using this option, one should prepare a file containing sequence id and corresponding SP cleavage site information. Each line in this file should be in the following format: <id><tab><SP cleavage site>
+
+SP cleavage site can either be a number(end index of the SP region assuming the beginning index is 1) or '-' (implying no SP).
 
 ----
 
-* Reference to the ApicoAP paper (where you can read more about the method): *
+*Please cite the following paper if you are using this tool:*
 
-ApicoAP: The first computational model for identifying apicoplast-targeted proteins in multiple species of Apicomplexa
-
-Gokcen Cilingir1, Shira L. Broschat1,2, and Audrey O.T. Lau2
-
-1School of Electrical Engineering and Computer Science, Washington State University, Pullman, WA 99164, USA
-
-2Program of Genomics, Department of Veterinary Microbiology and Pathology, Paul G. Allen School for Global Animal Health, Washington State University, Pullman, WA 99164, USA
+Cilingir G, Broschat SL, Lau AOT (2012) ApicoAP: The First Computational Model for Identifying 
+Apicoplast-Targeted Proteins in Multiple Species of Apicomplexa. PLoS ONE 7(5)
