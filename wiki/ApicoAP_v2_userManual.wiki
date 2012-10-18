@@ -86,7 +86,11 @@ All options but "-s" are required. Setting this option will cause the program no
 
 == Using -s option ==
 
-When using this option, one should prepare a file containing sequence id and corresponding SP cleavage site information. Each line in this file should be in the following format: <id><tab><SP cleavage site>
+When using this option, one should prepare a file containing sequence id and corresponding SP cleavage site information. Each line in this file should be in the following format: 
+
+{{{
+<id><tab><SP cleavage site>
+}}}
 
 SP cleavage site can either be a number(end index of the SP region assuming the beginning index is 1) or '-' (implying no SP).
 
