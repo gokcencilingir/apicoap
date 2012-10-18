@@ -84,7 +84,7 @@ Prediction for a protein can be one of the following: "non-ApicoTP", "ApicoTP", 
 }}}                        
 All options but "-s" are required. Setting this option will cause the program not to query SignalP server, but use the provided file, which is assumed to contain required information on SP cleavage. Please read the next section on how to format these files if you're planning to use this option.
 
-== Using -s option ==
+* Using -s option
 
 When using this option, one should prepare a file containing sequence id and corresponding SP cleavage site information. Each line in this file should be in the following format(brackets are not included in the format, and each identifier in brackets describes the content of the field) : 
 
@@ -92,7 +92,7 @@ When using this option, one should prepare a file containing sequence id and cor
 <id><tab><SP cleavage site>
 }}}
 
-SP cleavage site can either be a number(end index of the SP region assuming the beginning index is 1) or '-' (implying no SP). *NOTE:* When this option is used, each protein in the fasta file should have a description line, only containing id of the protein as it appeared in the SP cleavage site file.  
+SP cleavage site can either be a number(end index of the SP region assuming the beginning index is 1) or dash character (implying no SP). *NOTE:* When this option is used, each protein in the fasta file should have a description line, solely containing id of the protein as it appeared in the SP cleavage site file.  
 ----
 
 *Please cite the following paper if you are using this tool:*
