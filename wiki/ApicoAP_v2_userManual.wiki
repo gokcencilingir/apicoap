@@ -8,6 +8,19 @@ ApicoAP is a program for predicting Apicoplast targeted proteins that use bipart
 
 * Requirements:* Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.3/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note some files in this directory are essential and any damage to them would cause ApicoAP stop working. 
 
+This version of ApicoAP also depend on two external libraries setuptools 0.6 which can be downloaded from http://pypi.python.org/pypi/setuptools/0.6c11#downloads
+
+and suds 0.5 which can be downloaded from http://pypi.python.org/pypi/suds/0.4.
+
+
+We recommend you to download the source codes of these libraries (with the extension .tar.gz) and unzip them in in the location where python.exe exist (In Windows, it is under C:/Python 27/). This way you don't have to worry about adding the paths of these libraries to PYTHONPATH. Once they are unzipped to folders named setuptools-0.6c11 and suds-0.4, here is what you have to do to install them:
+
+* Open a command window and change directories to the location of setuptools-0.6c11, and type:
+      python setup.py install
+* Then, change directories to the location of suds-0.4, and type:
+      python setup.py install
+
+Running these commands should install these libraries in your system. Please note that having installed Python version 2.7x in your system is crucial for these libraries to work.
 
 *NOTE:* Sometimes, run-time messages (mostly warnings) will occur due to different versions of some of the supporting software. These messages should be ignored since they are benign.
 
