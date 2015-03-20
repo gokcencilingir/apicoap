@@ -1,0 +1,116 @@
+## Introduction ##
+
+ApicoAP is a program for predicting Apicoplast targeted proteins that use bipartite signaling mechanism (ApicoTPs). It comes with both graphical user and command line interfaces.
+
+## Instructions for running ApicoAP ##
+
+**Requirements:** Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.3/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note some files in this directory are essential and any damage to them would cause ApicoAP stop working.
+
+This version of ApicoAP also depend on two external libraries:
+
+  * setuptools 0.6 which can be downloaded from http://pypi.python.org/pypi/setuptools/0.6c11#downloads
+
+  * suds 0.5 which can be downloaded from http://pypi.python.org/pypi/suds/0.4.
+
+
+We recommend you to download the source codes of these libraries (with the extension .tar.gz) and unzip them in in the location where python.exe exist (In Windows, it is under C:/Python 27/). This way you don't have to worry about adding the paths of these libraries to PYTHONPATH. Once they are unzipped to folders named setuptools-0.6c11 and suds-0.4, here is what you have to do to install them:
+
+  * Open a command window and change directories to the location of setuptools-0.6c11, and type:
+> > python setup.py install
+  * Then, change directories to the location of suds-0.4, and type:
+> > python setup.py install
+
+Running these commands should install these libraries in your system. Please note that having installed Python version 2.7x in your system is crucial for these libraries to work.
+
+**NOTE:** Sometimes, run-time messages (mostly warnings) will occur due to different versions of some of the supporting software. These messages should be ignored since they are benign.
+
+**Launching ApicoAP with Graphical User Interface (GUI):**
+
+  * For Mac OS X, simply double-clicking ApicoAP\_GUI.py would launch the software if the default program to open ".py" files is set to be the terminal. If instead of the program, an editor opens the source code, and you don't know how to change the default program to open a file, then, open the Terminal app, change directories to the location of ApicoAP, and type:
+> > python ApicoAP\_GUI.py
+
+  * _NOTE on MAC OS X:_ Splash screen of the program may not appear when above instructions were followed. Instructions will be included as a separate wiki page for you to convert .py file to an .app file at the end of this document. When app file is launched splash screen will be visible.
+
+  * For Windows, simply double click on ApicoAP\_GUI.py or open a command prompt, change directories to the location of ApicoAP, and type:
+> > python ApicoAP\_GUI.py
+
+**Launching ApicoAP from command line:** Please refer to the section entitled "ApicoAP - command line"
+
+## Instructions for using ApicoAP GUI ##
+
+  * Select the organism you are interested in. The classification rule that applies to the proteins of the selected organism will be used in the prediction.
+
+  * Copy-paste FASTA formatted protein sequences to the text box, or import a FASTA formatted file by selecting the "Import sequences from fasta file" option. **NOTE:** exampleFiles directory contains some FASTA formatted files that can be used for testing ApicoAP.
+
+  * Click "Run ApicoAP" button to see the predictions along with id and SP cleavage site information.
+
+  * Optional: Save predictions to a file.
+
+  * Click "Enter new data" button to enter new data. **Note:** Clicking this button enables the use of the rest of the form that is disabled after prediction results are displayed.
+
+
+**NOTE:** For the prediction results to be displayed as neatly as possible, description lines of the fasta formatted sequences should be in an acceptable format. Following exemplifies acceptable description line formats for the same sequence(these are standards used in eupathdb and ncbi).
+
+```
+>PF3D7_0815700  | Plasmodium falciparum 3D7 | ubiquitin (Ub) | protein  | length=373
+MIKKVHICLFIIFFYVIFLIHICKGIRLQNYKNERINNRHMLNTIRNNVSIYQNKHISNN
+NTKENKCNIMINYYDKSNIFCKSFLLSMEEKDNIKNIKKKIEEIYGIPLTLQEILYDNKK
+LENNITIQNIIKDKQIKILNLRLITILPHLFLQKDDDNNTNKRNDVSSSSSSSSLYNNEY
+IKSNKRITYLKNKLTYYGYLTLLNEYKKLSHILENKKYILKNDDILESFKSFDQEFEKTL
+KNNNINLHKIKKEINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTII
+KFSIFFYILYKYADYPNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTN
+ILSASYQQILMCQ
+```
+```
+>gi|296005015|ref|XP_002808847.1| conserved Plasmodium protein, unknown function [Plasmodium falciparum 3D7]
+MIKKVHICLFIIFFYVIFLIHICKGIRLQNYKNERINNRHMLNTIRNNVSIYQNKHISNN
+NTKENKCNIMINYYDKSNIFCKSFLLSMEEKDNIKNIKKKIEEIYGIPLTLQEILYDNKK
+LENNITIQNIIKDKQIKILNLRLITILPHLFLQKDDDNNTNKRNDVSSSSSSSSLYNNEY
+IKSNKRITYLKNKLTYYGYLTLLNEYKKLSHILENKKYILKNDDILESFKSFDQEFEKTL
+KNNNINLHKIKKEINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTII
+KFSIFFYILYKYADYPNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTN
+ILSASYQQILMCQ
+```
+
+## Interpreting prediction results ##
+
+Prediction for a protein can be one of the following: "non-ApicoTP", "ApicoTP", "No SP". First two tags are self-explanatory. "No SP" implies that SignalP 3.0 could not detect an SP site in the sequence. Since ApicoAP predicts Apicoplast Targeted Proteins (ApicoTPs)that use bipartite signaling mechanism, which dictates a protein to contain an SP region; this prediction implies that the protein is not an ApicoTP.
+
+## ApicoAP - command line ##
+
+```
+*Usage:* ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
+
+*Options:*
+  -h, --help            show this help message and exit
+  -m ORGANISM, --mode=ORGANISM
+                        Select organism: BBOV for B.bovis, PF for
+                        P.falciparum, TOXO for T.gondii, PY for P.yoelii.
+                        [default: BBOV]
+  -s FILE, --spFile=FILE
+                        Read SP cleavage site information from FILE instead of
+                        querying SIGNALP server
+  -f FILE, --fastaFile=FILE
+                        Read FASTA formatted sequences from FILE
+  -o FILE, --outputFile=FILE
+                        Write output to FILE
+```
+All options but "-s" are required. Setting this option will cause the program not to query SignalP server, but use the provided file, which is assumed to contain required information on SP cleavage. Please read the next section on how to format these files if you're planning to use this option.
+
+**Using -s option**
+
+When using this option, one should prepare a file containing sequence id and corresponding SP cleavage site information. Each line in this file should be in the following format(brackets are not included in the format, and each identifier in brackets describes the content of the field) :
+
+```
+<id><tab><SP cleavage site>
+```
+
+SP cleavage site can either be a number(end index of the SP region assuming the beginning index is 1) or dash character (implying no SP). **NOTE:** When this option is used, each protein in the fasta file should have a description line, solely containing id of the protein as it appeared in the SP cleavage site file.
+
+---
+
+
+**Please cite the following paper if you are using this tool:**
+
+Cilingir G, Broschat SL, Lau AOT (2012) ApicoAP: The First Computational Model for Identifying
+Apicoplast-Targeted Proteins in Multiple Species of Apicomplexa. PLoS ONE 7(5)

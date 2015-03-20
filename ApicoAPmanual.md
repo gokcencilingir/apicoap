@@ -1,0 +1,135 @@
+## Introduction ##
+
+ApicoAP is a program for predicting Apicoplast targeted proteins that use bipartite signaling mechanism (ApicoTPs). It comes with both graphical user and command line interfaces.
+
+## Instructions for running ApicoAP ##
+
+**Requirements:** Python version 2.7x is needed to launch the software, which can be downloaded from http://www.python.org/download/releases/2.7.3/ . First, unpack the archive ApicoAPxx.zip on your path of choice. Please note some files in this directory are essential and any damage to them would cause ApicoAP stop working.
+
+**NOTE:** Sometimes, run-time messages (mostly warnings) will occur due to different versions of some of the supporting software. These messages should be ignored since they are benign.
+
+**Launching ApicoAP with Graphical User Interface (GUI):**
+
+  * For Mac OS X, simply double-clicking ApicoAP\_GUI.py would launch the software if the default program to open ".py" files is set to be the terminal. If instead of the program, an editor opens the source code, and you don't know how to change the default program to open a file, then, open the Terminal app, change directories to the location of ApicoAP, and type:
+> > python ApicoAP\_GUI.py
+
+  * _NOTE on MAC OS X:_ Splash screen of the program may not appear when above instructions were followed. Instructions will be included as a separate wiki page for you to convert .py file to an .app file at the end of this document. When app file is launched splash screen will be visible.
+
+  * For Windows, simply double click on ApicoAP\_GUI.py or open a command prompt, change directories to the location of ApicoAP, and type:
+> > python ApicoAP\_GUI.py
+
+**Launching ApicoAP from command line:** Please refer to the section entitled "ApicoAP - command line"
+
+## Instructions for using ApicoAP GUI ##
+
+In order to predict if a protein localizes to Apicoplast or not, ApicoAP
+requires the whole sequence of a protein and the predicted SP cleavage site information. User should enter protein sequences in FASTA format, making sure description line contains protein id information that can be tied down to SP cleavage site information by the program.
+
+
+ApicoAP program comes with ".spCleavs" files that ties SP cleavage site
+information with gene ids (official gene names). These files are prepared using SignalP 3.0 tool. In order to make use of SP cleavage site information in these files, user should use appropriate protein ID in the description lines when entering FASTA formatted sequences. In fact, description lines (that start with the character '>') may only contain the appropriate protein ID, and nothing else. Following are examples of acceptable sequence formats (first one is a B. bovis protein and the second one is a P. falciparum protein):
+
+```
+>BBOV_II005080
+MASLSYSFLLVLFTCLASWDSPRICDCIKLKGSPNSRSGYIIHRIKGYAVNPSSNRHVAKSSV
+DYTSGELRPFTLYYNVKLITPEGEKVVDCDPDEYILEAAERGGVDLPYSCRSGSCSTCAGKLL
+KGEVNNEDQNYLDDKQLEEGYCLLCTCYAKSDCTIVTHKENELHD
+```
+```
+>PF08_0067
+MIKKVHICLFIIFFYVIFLIHICKGIRLQNYKNERINNRHMLNTIRNNVSIYQNKHISNNNTK
+ENKCNIMINYYDKSNIFCKSFLLSMEEKDNIKNIKKKIEEIYGIPLTLQEILYDNKKLENNIT
+IQNIIKDKQIKILNLRLITILPHLFLQKDDDNNTNKRNDVSSSSSSSSLYNNEYIKSNKRITY
+LKNKLTYYGYLTLLNEYKKLSHILENKKYILKNDDILESFKSFDQEFEKTLKNNNINLHKIKK
+EINKLKHIDKKKLLLRLEVDYPLMSNNLTKRIKQLFQYYYMGDITTIIKFSIFFYILYKYADY
+PNHIKKFFLYLSILFLISPFKPFYKFSHFLFFSVPNNILFSGFTNILSASYQQILMCQ
+```
+
+ApicoAP provides other ways to enter SP cleavage site information. Use case B and C talks about these ways.
+
+## Use cases for ApicoAP software ##
+
+  * (A) Using default files to import SP cleavage information
+
+  1. Select the appropriate organism from "Select organism" box.
+  1. Select default file option from "Import Signal Peptide (SP) cleavage information" box and click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
+  1. Copy-paste FASTA formatted protein sequences to the text box, or import a FASTA formatted file by selecting the "Import sequences from fasta file" option. **NOTE:** exampleFiles directory contains some FASTA formatted files that can be used for testing ApicoAP.
+  1. Click "Run ApicoAP" button to see the predictions along with id and SP cleavage site information.
+  1. Optional: Save predictions to a file.
+  1. Click "Enter new data" button to enter new data. **Note:** Clicking this button enables the use of the rest of the form that is disabled after prediction results are displayed.
+
+  * (B) Using custom files to import SP cleavage information
+
+  1. Select the appropriate organism from "Select organism" box.
+  1. Select custom file option from "Import Signal Peptide (SP) cleavage information" box.
+  1. Enter or browse file name which contains id-SP cleavage site pairs (tab-delimited pairs in separate lines).
+  1. Click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
+  1. Follow steps 3-6 from use case A.
+
+  * (C) Enter SP information manually
+
+  1. Select the appropriate organism from "Select organism" box.
+  1. Select "Enter SP information manually" option from "Import Signal Peptide (SP) cleavage information" box .
+  1. Enter ID and SP information in the appropriate text boxes provided.
+  1. For example, enter "myID1" and "21" respectively.
+  1. Click "Import" button. Note that until you import some SP cleavage information for the selected organism, rest of the software will remain disabled.
+  1. Follow steps 3-6 from use case A. Following the example given in step 3, you may enter the following to the text box provided in "Import protein Sequences" text box:
+
+```
+>myID1
+SAVTDLLQSVQLEYHGYEGDRKDNADTSNKGPPKERVEGCLNELFSLVQGLGATAVVRTYIDQ
+LAQVLSALVGWSRIDKCSIGSCDHGKKGSTCQYLQDKTPENKCGACGCMKWNVDEADQEEKGH
+HLGRGCQRCSDSGGSEHNCSCSGGGSDCTAETCKCALAGK      
+```
+
+**Additional Notes:**
+
+  * Prediction functionality of the program will remain disabled until user enters SP cleavage information for the selected organism.
+
+  * User can import Signal Peptide (SP) cleavage information as many times as wanted for a selected organism using all or some of the available options. If conflicting information is entered regarding a unique protein ID, latest information will be used during prediction.
+
+## Interpreting prediction results ##
+
+Prediction for a protein can be one of the following: "non-ATP", "ATP",
+"No SP", "Unknown id". First two tags are self-explanatory. "No SP" implies that the id information is tied with the information that the protein does not contain an SP region. Since ApicoAP predicts Apicoplast Targeted Proteins (ApicoTPs)that use bipartite signaling mechanism, which dictates a protein to contain an SP region; this prediction implies that the protein is not an ATP. If the program cannot tie the given ID with an SP cleavage information, prediction
+result for the protein will be "Unknown id". User is encouraged to enter SP cleavage site information for these proteins by either preparing and importing a custom file or entering this information manually (follow use cases B and C for more information).
+
+## Preparing/Entering SP cleavage site information ##
+
+When entering SP cleavage site information manually (or through a custom prepared file), one should put the end index of the SP region as the SP cleavage site assuming the beginning index is 1.
+
+SP cleavage site information file is expected to contain id-SP cleavage site pairs in separate lines. Each line should contain an ID and SP cleavage site (either a number or '-' or 'N' implying no SP), seperated by a tab.
+
+
+## ApicoAP - command line ##
+
+```
+*Usage:* python ApicoAP_CL.py -m ORGANISM [-s SP_FILE] -f FASTA_FILE -o OUT_FILE
+*Options:*
+  -h, --help
+           show this help message and exit
+  -m ORGANISM, --mode=ORGANISM   
+           Select organism: BBOV for B.bovis, PF for P.falciparum, 
+           TOXO for T.gondii, PY for P.yoelii.[default: BBOV]
+  -s FILE, --spFile=FILE
+           Read additional SP cleavage site information from FILE
+  -f FILE, --fastaFile=FILE
+           Read FASTA formatted sequences from FILE
+  -o FILE, --outputFile=FILE
+           Write output to FILE
+```
+All options but "-s" are required. When additional SP cleavage site information is provided by this option, provided file is imported "after" the default files are imported (which are the files named as "organism".spCleavs and "organism".idMap). This is important since whatever is imported later overwrites the SP cleavage site information for the already existing protein IDs.
+
+
+---
+
+
+**Reference to the ApicoAP paper (where you can read more about the method):**
+
+ApicoAP: The first computational model for identifying apicoplast-targeted proteins in multiple species of Apicomplexa
+
+Gokcen Cilingir1, Shira L. Broschat1,2, and Audrey O.T. Lau2
+
+1School of Electrical Engineering and Computer Science, Washington State University, Pullman, WA 99164, USA
+
+2Program of Genomics, Department of Veterinary Microbiology and Pathology, Paul G. Allen School for Global Animal Health, Washington State University, Pullman, WA 99164, USA
